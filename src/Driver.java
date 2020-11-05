@@ -1,11 +1,9 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.Spliterator;
+import java.util.TreeMap;
 
-public abstract class Driver implements Set<String>, List<String>, Comparable<String>{
+public abstract class Driver {
 	public static void main (String[] args) {
 	
 	ArrayList<String> phrases = new ArrayList<>();
@@ -19,20 +17,26 @@ public abstract class Driver implements Set<String>, List<String>, Comparable<St
 	boolean returnVal = true;
 	int i = 0;
 	while (returnVal) {
-		foodHabits.add(phrases.get(i));
+		returnVal = foodHabits.add(phrases.get(i));
 		++i;
 	}
 	System.out.println(foodHabits);
+	System.out.println("Should ");
 	HashMap<String, Integer> names = new HashMap<>();
-	names.put("Rafal", 1);
-	names.put("James", 2);
 	names.put("Aiden", 3);
-	
-	}
-
-	@Override
-	public Spliterator<String> spliterator() {
-		// TODO Auto-generated method stub
-		return Set.super.spliterator();
+	names.put("Rafal", 1);
+	names.put("Anindya", 1);
+	names.put("Willow", 3);
+	names.put("James", 2);
+	TreeMap<String, Integer> treeNames = new TreeMap<>();
+	treeNames.put("Rafal", 1);
+	treeNames.put("James", 2);
+	treeNames.put("Aiden", 3);
+	treeNames.put("Willow", 3);
+	treeNames.put("Anindya", 1);
+	System.out.println(names);
+	System.out.println(treeNames);
+	System.out.println("In the second line, they are sorted alphabetically.");
+	System.out.println("\nTo guarantee proper order of key value pairs, one would want to use a TreeMap.");
 	}
 }
